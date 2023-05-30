@@ -1,0 +1,38 @@
+name: Deploy to cloudtype
+on:
+  # main브랜치에서 push 이벤트가 발생하면 action이 실행한다.
+  push:
+    branches:
+      - main
+      
+# 어떤 워크플로우를 실행하는지 명세.
+jobs:
+  deploy: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Connect deploy key
+        uses: cloudtype-github-actions/connect@v1
+        with:
+          token: ${{ secrets.CLOUDTYPE_TOKEN }}
+          ghtoken: ${{ secrets.GHP_TOKEN }}
+      - name: Deploy
+        uses: cloudtype-github-actions/deploy@v1
+        with:
+          token: ${{ secrets.CLOUDTYPE_TOKEN }}
+          project: eunkangchoi-dyphi/webinar-01
+          stage: main # 배포환경: staging / dev / production 등.
+          # 최초배포 설정
+          yaml: | 
+            name: webinar-01
+            app: web
+            options:
+              docbase: /dist
+              nodeversion: "16"
+              spa: true
+            context:
+              git:
+                url: git@github.com:${{ github.repository }}.git
+                ref: ${{ github.ref }}
+              preset: react-vite
