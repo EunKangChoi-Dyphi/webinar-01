@@ -26,6 +26,10 @@
 ## ⚙️ GitHub Actions Workflows
 
 ### 배포된 React 앱에 GitHub Actions 적용하기
+<img width="1171" alt="스크린샷 2023-05-30 오후 2 45 22" src="https://github.com/EunKangChoi-Dyphi/webinar-01/assets/129829722/3c867f0e-87ed-41e6-ab3d-79e41512a62f">
+<img width="1163" alt="스크린샷 2023-05-30 오후 2 30 13" src="https://github.com/EunKangChoi-Dyphi/webinar-01/assets/129829722/41d77a91-5550-47d5-b231-e1cc6797b3b0">
+
+
 ```yaml
 name: Deploy to cloudtype
 on:
@@ -64,6 +68,10 @@ jobs:
 ```
 
 ### 프라이빗 레지스트리 이미지 배포하기 - GitHub Container Registry
+
+<img width="1167" alt="스크린샷 2023-05-30 오후 2 45 29" src="https://github.com/EunKangChoi-Dyphi/webinar-01/assets/129829722/97944221-46f4-4762-abeb-5309503f0432">
+
+
 ```yaml
 name: Create and publish a Docker image, Deploy to Cloudtype
 
