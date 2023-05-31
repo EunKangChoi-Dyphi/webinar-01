@@ -8,7 +8,8 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
-  SPACE_NAME: eunkang@dyphi.com
+  SPACE_NAME: eunkangchoi-dyphi
+  PROJECT_NAME: webinar-01
 
 jobs:
   build-and-push-image:
@@ -48,7 +49,7 @@ jobs:
         uses: cloudtype-github-actions/deploy@v1
         with:
           token: ${{ secrets.CLOUDTYPE_TOKEN }}
-          project: ${{ env.SPACE_NAME }}/webinar-01
+          project: ${{ env.SPACE_NAME }}/${{ env.PROJECT_NAME }}
           stage: main
           yaml: |
             name: webinar-2
